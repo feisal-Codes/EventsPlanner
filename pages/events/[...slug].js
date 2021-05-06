@@ -36,7 +36,7 @@ const FilteredEvent = () => {
   const filteredEvents = getFilteredEvents(dateFilter);
   console.log(filteredEvents);
 
-  if (!dateFilter || dateFilter.length === 0) {
+  if (!filteredEvents || filteredEvents.length === 0) {
     return <p className="center">No Events found!</p>;
   }
 
