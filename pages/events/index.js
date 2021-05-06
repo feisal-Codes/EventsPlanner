@@ -1,9 +1,33 @@
+import { useRouter } from "next/router";
+import EventList from "../../components/events/EventList.js";
+import EventSearch from "../../components/events/EventSearch.js";
+import { getAllEvents } from "../../dummy-data.js";
+
+
+
 const EventsPage = () => {
-    return (  
   
-       <div>
-         <h1>All events appear here</h1>
-       </div>
+const router=useRouter();
+
+ const handleFindEvent =(selectedYear, selectedMonth)=>{
+    
+
+  const pathname =`events/${selectedMonth}/${selectedYear}`;
+  router.push(pathname);
+
+ }
+
+
+
+
+
+  const items=getAllEvents();
+  return (  
+         
+       <>
+         <EventSearch onSearch={handleFindEvent}/>
+         <EventList items={items}/>
+       </>
   
     );
   }
